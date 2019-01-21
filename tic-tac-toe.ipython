@@ -1,0 +1,295 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Tic-Tac-Toe Game Design and Code Implementation\n",
+    "\n",
+    "\n",
+    "### Steps:\n",
+    "1. Display the empty board\n",
+    "1. Show game instruction\n",
+    "1. Prompt player to use a symbol to play\n",
+    "1. Ask player\n",
+    "1. Make a dictionary to link the number to a x/o symbol on the 3 * 3 board\n",
+    "1. ask next player to select number \n",
+    "1. check the win or not after each move\n",
+    "1. any 3 same symbol on a line will inform the player win\n",
+    "1. ask players keep playing or not\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def display_empty_board():\n",
+    "    for row in range(1,12):\n",
+    "        for col in range(1,12):\n",
+    "            if col % 4 == 0 and (row % 4):\n",
+    "                print('|', end = '')\n",
+    "            elif row % 4 == 0:\n",
+    "                print('-', end = '')\n",
+    "            else:\n",
+    "                print(' ', end = '')\n",
+    "        print('') \n",
+    "        \n",
+    "display_empty_board()             "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hey, 1st player! Ready for the game? which shape would you choose to play? X or O, choose one!\n",
+      "x\n",
+      "You selected  X\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "'X'"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "from IPython.display import clear_output\n",
+    "def firstPlayerShape ():\n",
+    "    \n",
+    "    print('Hey, 1st player! Ready for the game? which shape would you choose to play? X or O, choose one!')\n",
+    "    x = input()\n",
+    "    print('You selected ', x[0].upper())\n",
+    "    return x[0].upper()\n",
+    "\n",
+    "firstPlayerShape()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "   |   |   \n",
+      " 7 | 8 | 9 \n",
+      "   |   |   \n",
+      "-----------\n",
+      "   |   |   \n",
+      " 4 | 5 | 6 \n",
+      "   |   |   \n",
+      "-----------\n",
+      "   |   |   \n",
+      " 1 | 2 | 3 \n",
+      "   |   |   \n"
+     ]
+    }
+   ],
+   "source": [
+    "def displayNumberPosition():\n",
+    "    lst = [7, 8, 9, 4, 5, 6, 1, 2, 3]\n",
+    "    \n",
+    "    for row in range(1,12):\n",
+    "        for col in range(1,12):\n",
+    "            if col % 4 == 0 and (row % 4):\n",
+    "                print('|', end = '')\n",
+    "            elif row % 4 == 0:\n",
+    "                print('-', end = '')\n",
+    "            elif col in [2, 6, 10] and row in [2, 6, 10]:\n",
+    "                print(lst.pop(0), end = '')\n",
+    "            else:\n",
+    "                print(' ', end = '')\n",
+    "        print('') \n",
+    "displayNumberPosition()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from IPython.display import clear_output\n",
+    "def select_number(flag, lst):\n",
+    "    \n",
+    "    order = {1:6, 2:7, 3:8, 4:3, 5:4, 6:5, 7:0, 8:1, 9:2}\n",
+    "    select = int(input())\n",
+    "    \n",
+    "    if flag:\n",
+    "        symbol = 'X'\n",
+    "    else:\n",
+    "        symbol = 'O'\n",
+    "        \n",
+    "    lst[order[select]] = symbol\n",
+    "    \n",
+    "    return lst\n",
+    "    \n",
+    "\n",
+    "    \n",
+    "    \n",
+    "        "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def display_board(lst):\n",
+    "    for row in range(1,12):\n",
+    "        for col in range(1,12):\n",
+    "            if col % 4 == 0 and (row % 4):\n",
+    "                print('|', end = '')\n",
+    "            elif row % 4 == 0:\n",
+    "                print('-', end = '')\n",
+    "            elif col in [2, 6, 10] and row in [2, 6, 10]:\n",
+    "                print(lst.pop(0), end = '')\n",
+    "            else:\n",
+    "                print(' ', end = '')\n",
+    "        print('')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def check(lst):\n",
+    "    if "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "\n",
+    "def welcome():\n",
+    "    print('Welcome to Tic-Tac-Toe Game')\n",
+    "    display_board()\n",
+    "    print('How to play?')\n",
+    "    print('See the number position below')\n",
+    "    displayNumberPosition()\n",
+    "    print(\"First player select a symbol: either 'X' or 'O'\")\n",
+    "    print('Two players alternate select number and then board will show the position')\n",
+    "    print('If any play got a row or cross line with all 3 same symbol win')\n",
+    "    print('You could play as many times of game as you want. You could exit the game by say no for player it again.')\n",
+    "    print('Enjoy!')\n",
+    "    player1 = firstPlayerShape()\n",
+    "    \n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def main():\n",
+    "    welcome()\n",
+    "    \n",
+    "    \n",
+    "    clear_output()\n",
+    "    \n",
+    "    display_board(lst)\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Welcome to Tic-Tac-Toe Game\n",
+      "   |   |   \n",
+      "   |   |   \n",
+      "   |   |   \n",
+      "-----------\n",
+      "   |   |   \n",
+      "   |   |   \n",
+      "   |   |   \n",
+      "-----------\n",
+      "   |   |   \n",
+      "   |   |   \n",
+      "   |   |   \n",
+      "How to play?\n",
+      "See the number position below\n",
+      "   |   |   \n",
+      " 7 | 8 | 9 \n",
+      "   |   |   \n",
+      "-----------\n",
+      "   |   |   \n",
+      " 4 | 5 | 6 \n",
+      "   |   |   \n",
+      "-----------\n",
+      "   |   |   \n",
+      " 1 | 2 | 3 \n",
+      "   |   |   \n",
+      "First player select a symbol: either 'X' or 'O'\n",
+      "Two players alternate select number and then board will show the position\n",
+      "If any play got a row or cross line with all 3 same symbol win\n",
+      "You could play as many times of game as you want. You could exit the game by say no for player it again.\n",
+      "Enjoy!\n",
+      "Hey, 1st player! Ready for the game? which shape would you choose to play? X or O, choose one!\n",
+      "x\n",
+      "You selected  X\n"
+     ]
+    }
+   ],
+   "source": [
+    "if __name__== \"__main__\":\n",
+    "    main()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
